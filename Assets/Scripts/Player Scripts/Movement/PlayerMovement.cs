@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,12 +18,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
         // Gets component in case not there
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
     {
+
         // Gets input from Input Manager
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -39,16 +43,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+
     }
 
     private void OnDrawGizmos()
     {
+
         // Set gizmo color to blue
         Gizmos.color = Color.blue;
 
         // Draw a wire sphere at the groundCheck position to represent the ground check radius
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
     }
 
 }
