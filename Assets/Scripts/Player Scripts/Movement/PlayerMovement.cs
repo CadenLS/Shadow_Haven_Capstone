@@ -39,6 +39,16 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
         }
 
+        // Flip the player sprite based on movement direction
+        if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // Facing right
+        }
+        else if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // Facing left
+        }
+
     }
 
     private void FixedUpdate()

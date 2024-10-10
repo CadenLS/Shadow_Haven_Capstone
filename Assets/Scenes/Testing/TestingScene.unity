@@ -127,13 +127,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4106454}
+  - component: {fileID: 4106458}
+  - component: {fileID: 4106455}
   - component: {fileID: 4106453}
   - component: {fileID: 4106457}
   - component: {fileID: 4106456}
-  - component: {fileID: 4106455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,6 +298,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4106458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f06cd8475e09479e0f41df3a836db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,10 +737,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1376575651}
+  - component: {fileID: 1376575655}
+  - component: {fileID: 1376575654}
   - component: {fileID: 1376575650}
   - component: {fileID: 1376575652}
   - component: {fileID: 1376575653}
-  - component: {fileID: 1376575654}
+  - component: {fileID: 1376575656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -895,6 +911,35 @@ MonoBehaviour:
   jumpForce: 500
   groundCheck: {fileID: 764919299}
   groundCheckRadius: 0.2
+--- !u!114 &1376575655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d9c3fa551e437449ca8adaa3622c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1376575656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc82b158dd4cec45b2121228a824d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  attackRadius: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2071871242
 GameObject:
   m_ObjectHideFlags: 0
