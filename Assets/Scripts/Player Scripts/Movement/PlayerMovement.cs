@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     
-    private Rigidbody2D rb; // Rigidbody2D component reference
+    public Rigidbody2D rb; // Rigidbody2D component reference
     private Vector2 movement; // Store input
 
     // Basic Variables
@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
 
-    private bool isOnGround;
+    public bool isOnGround;
 
 
     private void Start()

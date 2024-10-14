@@ -11,7 +11,7 @@ public class EnemyBase : MonoBehaviour
     void Start()
     {
 
-        enemyHealth = 10f;
+        enemyHealth = 20f;
         enemyMovement = GetComponent<EnemyMovement>();
 
     }
@@ -34,7 +34,6 @@ public class EnemyBase : MonoBehaviour
     // Method to disable the enemy object
     private void Die()
     {
-        // Optionally, you can add animations or effects here before disabling
         Debug.Log("Enemy died.");
         gameObject.SetActive(false);
     }

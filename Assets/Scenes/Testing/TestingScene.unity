@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 1376575650}
   - component: {fileID: 1376575652}
   - component: {fileID: 1376575653}
+  - component: {fileID: 1376575657}
   - component: {fileID: 1376575656}
   m_Layer: 0
   m_Name: Player
@@ -907,10 +908,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d1369cef1367f49b0a238bc557e3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   moveSpeed: 5
   jumpForce: 500
   groundCheck: {fileID: 764919299}
   groundCheckRadius: 0.2
+  isOnGround: 0
 --- !u!114 &1376575655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,6 +943,21 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  playerMovement: {fileID: 1376575654}
+--- !u!114 &1376575657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccd25758950df241bc4d7265ff3f1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1376575654}
+  swordAttack: {fileID: 1376575656}
 --- !u!1 &2071871242
 GameObject:
   m_ObjectHideFlags: 0
