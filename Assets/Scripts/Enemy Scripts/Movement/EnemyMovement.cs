@@ -16,7 +16,6 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //anime = GetComponent<Animator>();
         curPoint = pointB.transform;
-        //anime.SetBool("isRunning", true);
 
     }
 
@@ -25,13 +24,14 @@ public class EnemyMovement : MonoBehaviour
     {
 
         Vector2 point = curPoint.position - transform.position;
+
         if (curPoint == pointB.transform)
         {
-            rb.linearVelocity = new Vector2(speed, 0);
+            rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
         }
         else
         {
-            rb.linearVelocity = new Vector2(-speed, 0);
+            rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
         }
 
         if (Vector2.Distance(transform.position, curPoint.position) < 0.5f && curPoint == pointB.transform)

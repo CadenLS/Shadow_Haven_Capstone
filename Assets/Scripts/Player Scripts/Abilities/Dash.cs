@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     private float dashStrength = 10;
     private float dashDur = 0.2f;
     public bool canDash = true;
-    private float originalGravity = 2;
+    private float originalGravity;
     public bool isDashing;
 
 

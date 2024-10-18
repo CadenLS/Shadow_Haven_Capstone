@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement; // Store input
     private Dash dash;
     private DoubleJump doubleJump;
+    private Hover hover;
 
     // Basic Variables
     public float moveSpeed = 5f;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dash = GetComponent<Dash>();
         doubleJump = GetComponent<DoubleJump>();
+        hover = GetComponent<Hover>();
 
     }
 
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dash.canDash = true;
             jumped = false;
+            hover.hoverAmount = hover.originalHoverAmount;
         }
     }
 
