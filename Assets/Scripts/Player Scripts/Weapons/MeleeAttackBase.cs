@@ -2,21 +2,25 @@ using UnityEngine;
 
 public class MeleeAttackBase : MonoBehaviour
 {
+    public Dash dash;
+    public PlayerMovement playerMovement;
 
     public float damage;
     public float attackRadius;
     public LayerMask enemyLayer;
-    public PlayerMovement playerMovement;
     private float bounceForce = 500;
+    //public bool canAttack = true;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        dash = GetComponent<Dash>();
     }
 
     public virtual void Attack()
     {
-
+        //if (canAttack)
+        //{
         if (Input.GetKey(KeyCode.W)) // W = 119
         {
             Debug.Log("Attacking upward");
@@ -32,6 +36,9 @@ public class MeleeAttackBase : MonoBehaviour
             Debug.Log("Attacking");
             GetAttackArea();
         }
+        //}
+
+        //else return;
 
     }
 
@@ -60,6 +67,7 @@ public class MeleeAttackBase : MonoBehaviour
                     playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityY, bounceForce));
                 }
                 enemyBase.TakeDamage(damage);
+                dash.canDash = true;
             }
         }
     }

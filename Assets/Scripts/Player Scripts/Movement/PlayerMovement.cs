@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb; // Rigidbody2D component reference
     private Vector2 movement; // Store input
 
+    private Dash dash;
+
     // Basic Variables
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Gets component in case not there
         rb = GetComponent<Rigidbody2D>();
+        dash = GetComponent<Dash>();
 
     }
 
@@ -49,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // Facing left
         }
 
+        if (isOnGround)
+        {
+            dash.canDash = true;
+        }
     }
 
     private void FixedUpdate()

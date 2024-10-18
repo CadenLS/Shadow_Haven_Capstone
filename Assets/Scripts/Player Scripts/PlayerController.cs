@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private MeleeAttackBase meleeAttack;
     private Dash dash;
+    private DoubleJump dbJump;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         meleeAttack = GetComponent<MeleeAttackBase>();
         dash = GetComponent<Dash>();
+        dbJump = new DoubleJump();
 
     }
 
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.C))
         {
             dash.DashForward();
+            dash.canDash = false;
         }
 
     }

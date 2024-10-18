@@ -3,36 +3,52 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public Sword swordAttack;
+    public MeleeAttackBase meleeAttack;
     private float dashStrength = 10;
-    private bool canDash = true;
+    private float dashDur = 0.2f;
+    public bool canDash = true;
+    private float originalGravity = 2;
+    public bool isDashing;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        swordAttack = GetComponent<Sword>();
+        meleeAttack = GetComponent<MeleeAttackBase>();
+        originalGravity = playerMovement.rb.gravityScale;
     }
 
     public void DashForward()
     {
-        if (canDash)
+        if (canDash && !isDashing)
         {
-            Vector2 dashDirection = (swordAttack.GetAttackPosition() - (Vector2)transform.position).normalized;
+            Vector2 dashDirection = (meleeAttack.GetAttackPosition() - (Vector2)transform.position).normalized;
             playerMovement.rb.linearVelocity = Vector2.zero;
             playerMovement.rb.AddForce(dashDirection * dashStrength, ForceMode2D.Impulse);
             canDash = false;
+            isDashing = true;
+
+            playerMovement.rb.gravityScale = 0;
+
+            // Stop the dash after a short duration
+            Invoke(nameof(EndDash), dashDur);
         }
         else
         {
             return;
         }
+    }
 
-        if (playerMovement.isOnGround)
-        {
-            canDash = true;
-        }
+    private void EndDash()
+    {
+        // Restore gravity
+        playerMovement.rb.gravityScale = originalGravity;
+
+        // Stop all momentum
+        playerMovement.rb.linearVelocity = Vector2.zero;
+
+        isDashing = false;
     }
 
 }

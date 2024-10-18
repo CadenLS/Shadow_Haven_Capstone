@@ -743,7 +743,8 @@ GameObject:
   - component: {fileID: 1376575652}
   - component: {fileID: 1376575653}
   - component: {fileID: 1376575657}
-  - component: {fileID: 1376575656}
+  - component: {fileID: 1376575658}
+  - component: {fileID: 1376575659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -908,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d1369cef1367f49b0a238bc557e3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1376575652}
   moveSpeed: 5
   jumpForce: 500
   groundCheck: {fileID: 764919299}
@@ -926,24 +927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d9c3fa551e437449ca8adaa3622c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1376575656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376575649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc82b158dd4cec45b2121228a824d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  attackRadius: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  playerMovement: {fileID: 1376575654}
 --- !u!114 &1376575657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +940,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1376575654}
-  swordAttack: {fileID: 1376575656}
+  meleeAttack: {fileID: 1376575658}
+  canDash: 1
+  isDashing: 0
+--- !u!114 &1376575658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ac888166726df4e8bb1e008e5bceed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dash: {fileID: 1376575657}
+  playerMovement: {fileID: 1376575654}
+  damage: 5
+  attackRadius: 0.6
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1376575659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731a5e5f766c59d4d8a3c58ea71066a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDoubleJump: 0
 --- !u!1 &2071871242
 GameObject:
   m_ObjectHideFlags: 0
