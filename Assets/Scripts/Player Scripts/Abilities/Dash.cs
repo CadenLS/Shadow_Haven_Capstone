@@ -4,6 +4,7 @@ public class Dash : MonoBehaviour
 {
     public PlayerMovement playerMovement;
     public MeleeAttackBase meleeAttack;
+
     private float dashStrength = 10;
     private float dashDur = 0.2f;
     public bool canDash = true;
@@ -26,6 +27,7 @@ public class Dash : MonoBehaviour
             Vector2 dashDirection = (meleeAttack.GetAttackPosition() - (Vector2)transform.position).normalized;
             playerMovement.rb.linearVelocity = Vector2.zero;
             playerMovement.rb.AddForce(dashDirection * dashStrength, ForceMode2D.Impulse);
+
             canDash = false;
             isDashing = true;
 

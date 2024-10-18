@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         meleeAttack = GetComponent<MeleeAttackBase>();
         dash = GetComponent<Dash>();
-        dbJump = new DoubleJump();
+        dbJump = GetComponent<DoubleJump>();
 
     }
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
             meleeAttack.Attack(); // Call the attack method from MeleeAttackBase
         }
 
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.Mouse3))
         {
             dash.DashForward();
             dash.canDash = false;

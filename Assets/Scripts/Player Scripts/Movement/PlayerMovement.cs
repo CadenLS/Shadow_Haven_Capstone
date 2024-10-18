@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
     
     public Rigidbody2D rb; // Rigidbody2D component reference
     private Vector2 movement; // Store input
-
     private Dash dash;
+    private DoubleJump doubleJump;
 
     // Basic Variables
     public float moveSpeed = 5f;
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.1f;
 
     public bool isOnGround;
+    public bool jumped = false;
 
 
     private void Start()
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         // Gets component in case not there
         rb = GetComponent<Rigidbody2D>();
         dash = GetComponent<Dash>();
+        doubleJump = GetComponent<DoubleJump>();
 
     }
 
@@ -37,10 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log("Is on ground: " + isOnGround);
 
-        if (Input.GetButtonDown("Jump") && isOnGround)
-        {
-            rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
-        }
+        Jump();
 
         // Flip the player sprite based on movement direction
         if (movement.x > 0)
@@ -55,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (isOnGround)
         {
             dash.canDash = true;
+            jumped = false;
         }
     }
 
@@ -73,6 +73,27 @@ public class PlayerMovement : MonoBehaviour
 
         // Draw a wire sphere at the groundCheck position to represent the ground check radius
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+    }
+
+    public void Jump()
+    {
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isOnGround)
+            {
+                rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
+                jumped = true;
+            }
+            else if (!isOnGround && doubleJump.canDoubleJump)
+            {
+                // Perform double jump
+                rb.linearVelocity = new Vector2(rb.linearVelocityX, 0); // Reset vertical velocity for consistent jump height
+                rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
+                doubleJump.canDoubleJump = false; // Disable further double jumps until grounded again
+            }
+        }
 
     }
 

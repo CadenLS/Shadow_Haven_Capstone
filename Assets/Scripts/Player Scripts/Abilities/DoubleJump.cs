@@ -4,6 +4,7 @@ public class DoubleJump : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+
     public bool canDoubleJump;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +18,10 @@ public class DoubleJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerMovement.isOnGround)
+        {
+            // Reset double jump ability when on the ground
+            canDoubleJump = true;
+        }
     }
 }
