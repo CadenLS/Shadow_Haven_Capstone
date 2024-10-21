@@ -9,14 +9,19 @@ public class PlayerMovement : MonoBehaviour
     private Dash dash;
     private DoubleJump doubleJump;
     private Hover hover;
+    private WallJump wall;
 
     // Basic Variables
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
+    public Transform wallCheck;
+    public float wallCheckRadius = 0.1f;
+    public float wallSlideSpeed = 2f;
 
     public bool isOnGround;
+    public bool isAgainstWall;
     public bool jumped = false;
 
 
@@ -28,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         dash = GetComponent<Dash>();
         doubleJump = GetComponent<DoubleJump>();
         hover = GetComponent<Hover>();
+        wall = GetComponent<WallJump>();
 
     }
 
@@ -38,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
 
         isOnGround = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckRadius, LayerMask.GetMask("Ground"));
+        isAgainstWall = Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckRadius, LayerMask.GetMask("Wall"));
 
         //Debug.Log("Is on ground: " + isOnGround);
 
@@ -53,12 +60,20 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // Facing left
         }
 
-        if (isOnGround)
+        if (isOnGround || isAgainstWall)
         {
             dash.canDash = true;
             jumped = false;
             hover.hoverAmount = hover.originalHoverAmount;
         }
+
+        // Wall sliding logic
+        if (isAgainstWall && !isOnGround && rb.linearVelocityY < 0)
+        {
+            // If the player is against a wall and falling, reduce the fall speed
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, -wallSlideSpeed);
+        }
+
     }
 
     private void FixedUpdate()
@@ -77,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
         // Draw a wire sphere at the groundCheck position to represent the ground check radius
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
+        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
+
     }
 
     public void Jump()
@@ -84,12 +101,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (isOnGround)
+            if (isOnGround || isAgainstWall)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 jumped = true;
             }
-            else if (!isOnGround && doubleJump.canDoubleJump)
+            else if ((!isOnGround && doubleJump.canDoubleJump) || (isAgainstWall && wall.canWallJump))
             {
                 // Perform double jump
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, 0); // Reset vertical velocity for consistent jump height

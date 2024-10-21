@@ -11,7 +11,7 @@ public class EnemyBase : MonoBehaviour
     void Start()
     {
 
-        enemyHealth = 20f;
+        enemyHealth = 50f;
         enemyMovement = GetComponent<EnemyMovement>();
 
     }

@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class DoubleJump : MonoBehaviour
+public class WallJump : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
 
-    public bool canDoubleJump;
+    public bool canWallJump;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
         playerMovement = GetComponent<PlayerMovement>();
-
+            
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerMovement.isOnGround || playerMovement.isAgainstWall)
+
+        if (playerMovement.isAgainstWall)
         {
             // Reset double jump ability when on the ground
-            canDoubleJump = true;
+            canWallJump = true;
+
         }
+
     }
 }

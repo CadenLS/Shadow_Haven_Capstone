@@ -64,7 +64,7 @@ public class MeleeAttackBase : MonoBehaviour
             {
                 if (playerMovement.isOnGround == false && Input.GetKey(KeyCode.S))
                 {
-                    playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityY, bounceForce));
+                    playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityX, bounceForce));
                 }
                 enemyBase.TakeDamage(damage);
                 dash.canDash = true;

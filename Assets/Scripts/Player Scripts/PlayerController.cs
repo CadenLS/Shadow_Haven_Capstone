@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Dash dash;
     private DoubleJump dbJump;
     private Hover hover;
+    private CloakCreep creep;
+    private WallJump wallJump;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
         dash = GetComponent<Dash>();
         dbJump = GetComponent<DoubleJump>();
         hover = GetComponent<Hover>();
+        creep = GetComponent<CloakCreep>();
+        wallJump = GetComponent<WallJump>();
 
     }
 
@@ -41,6 +45,11 @@ public class PlayerController : MonoBehaviour
         {
             hover.canHover = true;
             hover.HoverAbility();
+        }
+
+        if (Input.GetKey(KeyCode.X) && playerMovement.isOnGround)
+        {
+            creep.Creep();
         }
 
     }
