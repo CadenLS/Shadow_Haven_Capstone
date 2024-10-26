@@ -77,6 +77,7 @@ public class CloakCreep : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeDamage(creepDamage);
+                    enemy.tookDamage = true;
                     Debug.Log($"Enemy hit for {creepDamage}");
                 }
             }

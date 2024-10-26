@@ -67,6 +67,7 @@ public class MeleeAttackBase : MonoBehaviour
                     playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityX, bounceForce));
                 }
                 enemyBase.TakeDamage(damage);
+                enemyBase.tookDamage = true;
                 dash.canDash = true;
             }
         }

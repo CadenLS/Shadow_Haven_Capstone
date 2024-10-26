@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 2025792154933567260}
   - component: {fileID: 4951089878751300533}
   - component: {fileID: 3931765728798930856}
+  - component: {fileID: 3435789772999557691}
   - component: {fileID: 4589852872080578558}
   - component: {fileID: 5660725848866582116}
   - component: {fileID: 6699150859240837872}
@@ -92,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 6154409712248118798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6863, y: -1.2626046, z: 0.036588877}
+  m_LocalPosition: {x: 6.6863, y: -2.15, z: 0.036588877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 0
+  tookDamage: 0
 --- !u!114 &3931765728798930856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +125,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26088631773ed4b4d91323443b89a741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundEnemyPerception: {fileID: 3435789772999557691}
   pointA: {fileID: 4970622427763283830}
   pointB: {fileID: 2802557374158560408}
-  speed: 2
   spr: {fileID: 4589852872080578558}
+  speed: 2
+--- !u!114 &3435789772999557691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154409712248118798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805c19355bd602e42afc0b916e318203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundEnemyMovement: {fileID: 3931765728798930856}
+  enemyBase: {fileID: 4951089878751300533}
+  player: {fileID: 0}
+  isPaused: 0
+  detectionRange: 5
+  detectionAngle: 45
+  chaseCooldown: 3
+  pauseDuration: 2
 --- !u!212 &4589852872080578558
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,14 +5,16 @@ public class EnemyBase : MonoBehaviour
 
     public float enemyHealth;
 
-    private EnemyMovement enemyMovement;
+    public bool tookDamage = false;
+
+    private GroundEnemyMovement groundEnemyMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         enemyHealth = 50f;
-        enemyMovement = GetComponent<EnemyMovement>();
+        groundEnemyMovement = GetComponent<GroundEnemyMovement>();
 
     }
 
