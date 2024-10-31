@@ -3,11 +3,12 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
 
-    public float enemyHealth;
-
-    public bool tookDamage = false;
-
     private GroundEnemyMovement groundEnemyMovement;
+
+    public float enemyHealth;
+    public bool tookDamage = false;
+    public float collisionDamage;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 0
   tookDamage: 0
+  collisionDamage: 5
 --- !u!114 &3931765728798930856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isPaused: 0
   detectionRange: 5
-  detectionAngle: 45
+  detectionAngle: 80
   chaseCooldown: 3
   pauseDuration: 2
 --- !u!212 &4589852872080578558
@@ -218,10 +219,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

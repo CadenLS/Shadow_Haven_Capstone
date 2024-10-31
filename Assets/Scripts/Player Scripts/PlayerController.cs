@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private Hover hover;
     private CloakCreep creep;
     private WallJump wallJump;
+    private ShadowGrapple grapple;
+
+    public float playerHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,17 +25,28 @@ public class PlayerController : MonoBehaviour
         hover = GetComponent<Hover>();
         creep = GetComponent<CloakCreep>();
         wallJump = GetComponent<WallJump>();
+        grapple = GetComponent<ShadowGrapple>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+
+        if (playerHealth <= 0)
+        {
+            // where I play death animation and end screen
+            Debug.Log("Player Dead");
+        }
 
         // Check for mouse input to attack
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
-            meleeAttack.Attack(); // Call the attack method from MeleeAttackBase
+            meleeAttack.Attack();
+        }
+
+        if (Input.GetMouseButton(1) && !grapple.isGrappling)
+        {
+            grapple.Grapple();
         }
 
         if (Input.GetKey(KeyCode.Mouse4))
@@ -53,4 +67,20 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if we collided with the enemy
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            EnemyBase enemyBase = collision.collider.GetComponent<EnemyBase>();
+            if (enemyBase != null)
+            {
+                // Reduce player health by the enemy's collision damage
+                playerHealth -= enemyBase.collisionDamage;
+                Debug.Log("Player took damage! Current health: " + playerHealth);
+            }
+        }
+    }
+
 }

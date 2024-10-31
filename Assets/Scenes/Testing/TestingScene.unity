@@ -1434,6 +1434,7 @@ GameObject:
   - component: {fileID: 1376575660}
   - component: {fileID: 1376575661}
   - component: {fileID: 1376575662}
+  - component: {fileID: 1376575663}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1622,6 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d9c3fa551e437449ca8adaa3622c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: 30
 --- !u!114 &1376575657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,6 +1720,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1376575654}
   canWallJump: 0
+--- !u!114 &1376575663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376575649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a70319770e8fff42902c6ace2a80d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleSpeed: 10
+  maxGrappleDistance: 15
+  isGrappling: 0
+  rb: {fileID: 1376575652}
+  swingStrength: 5
+  cooldownTime: 5
 --- !u!1 &1569870591
 GameObject:
   m_ObjectHideFlags: 0
