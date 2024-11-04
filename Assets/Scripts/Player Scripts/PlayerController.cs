@@ -44,24 +44,24 @@ public class PlayerController : MonoBehaviour
             meleeAttack.Attack();
         }
 
-        if (Input.GetMouseButton(1) && !grapple.isGrappling)
+        if (AbilityManager.Instance.IsAbilityUnlocked("Grapple") && Input.GetMouseButton(1) && !grapple.isGrappling)
         {
             grapple.Grapple();
         }
 
-        if (Input.GetKey(KeyCode.Mouse4))
+        if (AbilityManager.Instance.IsAbilityUnlocked("Dash") && Input.GetKey(KeyCode.Mouse4))
         {
             dash.DashForward();
             dash.canDash = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse3) && !playerMovement.isOnGround && hover.hoverAmount >= 1)
+        if (AbilityManager.Instance.IsAbilityUnlocked("Hover") && Input.GetKeyDown(KeyCode.Mouse3) && !playerMovement.isOnGround && hover.hoverAmount >= 1)
         {
             hover.canHover = true;
             hover.HoverAbility();
         }
 
-        if (Input.GetKey(KeyCode.X) && playerMovement.isOnGround)
+        if (AbilityManager.Instance.IsAbilityUnlocked("Creep") && Input.GetKey(KeyCode.X) && playerMovement.isOnGround)
         {
             creep.Creep();
         }
