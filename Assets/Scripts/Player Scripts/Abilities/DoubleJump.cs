@@ -15,13 +15,13 @@ public class DoubleJump : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (playerMovement.isOnGround || playerMovement.isAgainstWall)
+
+        if (playerMovement.isOnGround || (AbilityManager.Instance.IsAbilityUnlocked("WJ") && playerMovement.isAgainstWall))
         {
-            // Reset double jump ability when on the ground
             canDoubleJump = true;
         }
+
     }
 }

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private DoubleJump doubleJump;
     private Hover hover;
     private WallJump wall;
+    private PlayerController playerController;
 
     // Basic Variables
     public float moveSpeed = 5f;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // Gets component in case not there
+        playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         dash = GetComponent<Dash>();
         doubleJump = GetComponent<DoubleJump>();
@@ -101,20 +103,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (isOnGround || isAgainstWall)
+            if (isOnGround)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 jumped = true;
             }
-            else if ((!isOnGround && doubleJump.canDoubleJump) || (isAgainstWall && wall.canWallJump))
+            else if ((AbilityManager.Instance.IsAbilityUnlocked("DJ") && !isOnGround && doubleJump.canDoubleJump) || (AbilityManager.Instance.IsAbilityUnlocked("WJ") && isAgainstWall && wall.canWallJump))
             {
-                // Perform double jump
-                rb.linearVelocity = new Vector2(rb.linearVelocityX, 0); // Reset vertical velocity for consistent jump height
+                rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
-                doubleJump.canDoubleJump = false; // Disable further double jumps until grounded again
+                doubleJump.canDoubleJump = false;
             }
         }
 
     }
 
 }
+               

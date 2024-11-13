@@ -5,7 +5,7 @@ public class WallJump : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
-    public bool canWallJump;
+    public bool canWallJump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,11 +19,13 @@ public class WallJump : MonoBehaviour
     void Update()
     {
 
-        if (playerMovement.isAgainstWall)
+        if (AbilityManager.Instance.IsAbilityUnlocked("WJ") && playerMovement.isAgainstWall)
         {
-            // Reset double jump ability when on the ground
             canWallJump = true;
-
+        }
+        else
+        {
+            canWallJump = false;
         }
 
     }
