@@ -11,6 +11,11 @@ public class CollectableBase : MonoBehaviour
     public bool shouldGainAbility = false;
     public string abilityToUnlock; // Name of the ability to unlock
 
+    public bool shouldTeleport = false;
+    public Transform teleportTo;
+
+    public bool shouldDestroy = false;
+
     public float floatSpeed = 2f;
     public float floatHeight = 0.5f;
     private Vector3 startPosition;
@@ -48,9 +53,23 @@ public class CollectableBase : MonoBehaviour
                 SceneManager.LoadScene(sceneLoaded);
             }
 
-            Destroy(gameObject);
+            if (shouldTeleport && teleportTo != null)
+            {
+                TeleportPlayer(other.gameObject); // Teleport the player
+            }
+
+            if (shouldDestroy)
+            {
+                Destroy(gameObject);
+            }
         }
 
+    }
+
+    private void TeleportPlayer(GameObject player)
+    {
+        player.transform.position = teleportTo.position;
+        Debug.Log("Player teleported to " + teleportTo.position);
     }
 
     protected virtual void OnCollect()

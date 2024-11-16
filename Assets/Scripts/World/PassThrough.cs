@@ -4,7 +4,7 @@ using UnityEngine;
 public class PassThrough : MonoBehaviour
 {
 
-    private Collider2D collider;
+    private new Collider2D collider;
     private bool playerOn;
 
     private void Start()
