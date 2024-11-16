@@ -55,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
         // Flip the player sprite based on movement direction
         if (movement.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Facing right
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Facing right
         }
         else if (movement.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Facing left
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Facing left
         }
 
         if (isOnGround || isAgainstWall)
