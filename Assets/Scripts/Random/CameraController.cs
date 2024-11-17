@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     private float lookOffset;
 
     private bool isFalling;
+    private bool isRising;
     public float maxVertOffset = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +39,21 @@ public class CameraController : MonoBehaviour
             if (player.isOnGround)
             {
                 isFalling = false;
+            }
+        }
+
+        if (player.transform.position.y - transform.position.y > maxVertOffset)
+        {
+            isRising = true;
+        }
+
+        if (isRising)
+        {
+            targetPoint.y = player.transform.position.y;
+
+            if (player.rb.linearVelocity.y <= 0) // Stop rising if player stops moving upward
+            {
+                isRising = false;
             }
         }
 

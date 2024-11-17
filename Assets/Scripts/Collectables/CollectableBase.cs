@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,7 @@ public class CollectableBase : MonoBehaviour
 {
 
     public string playerTag = "Player";
+
     public bool shouldChangeScenes = false;
     public string sceneLoaded;
 

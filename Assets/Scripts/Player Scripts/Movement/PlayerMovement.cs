@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnGround;
     public bool isAgainstWall;
     public bool jumped = false;
+    private bool canControl = true;
 
 
     private void Start()
@@ -69,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
             hover.hoverAmount = hover.originalHoverAmount;
         }
 
+        if (isAgainstWall)
+        {
+            doubleJump.canDoubleJump = false;
+        }
+
         // Wall sliding logic
         if (isAgainstWall && !isOnGround && rb.linearVelocityY < 0)
         {
@@ -81,7 +88,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+        //rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+
+        if (!isAgainstWall && canControl) // Prevent overriding while sliding or attached to a wall
+        {
+            rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+            Vector2 targetVelocity = new Vector2(movement.x * moveSpeed / 5, rb.linearVelocity.y);
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, 0.1f); // Smooth transition to target velocity
+        }
 
     }
 
@@ -105,18 +119,46 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnGround)
             {
+                // Regular jump from the ground
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 jumped = true;
             }
-            else if ((AbilityManager.Instance.IsAbilityUnlocked("DJ") && !isOnGround && doubleJump.canDoubleJump) || (AbilityManager.Instance.IsAbilityUnlocked("WJ") && isAgainstWall && wall.canWallJump))
+            else if (!isOnGround && doubleJump.canDoubleJump)
             {
+                // Double jump logic
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 doubleJump.canDoubleJump = false;
             }
+            else if (isAgainstWall && wall.canWallJump)
+            {
+                // Wall jump logic: Push off the wall with a slight horizontal force
+                rb.linearVelocity = Vector2.zero; // Reset velocity to avoid accumulation
+
+                // Apply jump force with a small horizontal push
+                float pushDirection = Mathf.Sign(transform.position.x - wallCheck.position.x); // Determine wall side
+                rb.AddForce(new Vector2(pushDirection * jumpForce / 1.5f, jumpForce)); // Horizontal and vertical force
+
+                StartCoroutine(DisableControlForSeconds(0.15f));
+
+                jumped = true;
+            }
         }
 
     }
+
+    private IEnumerator DisableControlForSeconds(float seconds)
+    {
+        canControl = false; // Disable control
+        yield return new WaitForSeconds(seconds); // Wait for the specified interval
+        canControl = true; // Re-enable control
+
+        if (AbilityManager.Instance.IsAbilityUnlocked("DJ"))
+        {
+            doubleJump.canDoubleJump = true;
+        }
+    }
+
 
 }
                

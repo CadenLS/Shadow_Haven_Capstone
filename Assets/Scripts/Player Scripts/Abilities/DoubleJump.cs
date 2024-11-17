@@ -5,7 +5,7 @@ public class DoubleJump : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
-    public bool canDoubleJump;
+    public bool canDoubleJump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +18,7 @@ public class DoubleJump : MonoBehaviour
     void Update()
     {
 
-        if (playerMovement.isOnGround || (AbilityManager.Instance.IsAbilityUnlocked("WJ") && playerMovement.isAgainstWall))
+        if (AbilityManager.Instance.IsAbilityUnlocked("DJ") && playerMovement.isOnGround)
         {
             canDoubleJump = true;
         }
