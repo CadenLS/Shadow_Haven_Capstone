@@ -22,11 +22,14 @@ public class Dash : MonoBehaviour
 
     public void DashForward()
     {
-        if (canDash && !isDashing && !playerMovement.isOnGround && !playerMovement.isAgainstWall)
+        if (canDash && !isDashing && !playerMovement.isAgainstWall)
         {
             Vector2 dashDirection = (meleeAttack.GetAttackPosition() - (Vector2)transform.position).normalized;
             playerMovement.rb.linearVelocity = Vector2.zero;
-            playerMovement.rb.AddForce(dashDirection * dashStrength, ForceMode2D.Impulse);
+            if (!playerMovement.isOnGround)
+            {
+                playerMovement.rb.AddForce(dashDirection * dashStrength, ForceMode2D.Impulse);
+            }
 
             canDash = false;
             isDashing = true;

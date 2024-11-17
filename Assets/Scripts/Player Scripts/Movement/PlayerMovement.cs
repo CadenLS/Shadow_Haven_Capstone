@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     public Rigidbody2D rb; // Rigidbody2D component reference
-    private Vector2 movement; // Store input
+    public Vector2 movement; // Store input
     private Dash dash;
     private DoubleJump doubleJump;
     private Hover hover;
@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isAgainstWall;
     public bool jumped = false;
     private bool canControl = true;
+
+    public Vector2 platformVelocity = Vector2.zero;
+    public bool isOnMovingPlatform = false;
 
 
     private void Start()
@@ -87,16 +90,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        //rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-
-        if (!isAgainstWall && canControl) // Prevent overriding while sliding or attached to a wall
+        if (!isAgainstWall && canControl)
         {
-            rb.position = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-            Vector2 targetVelocity = new Vector2(movement.x * moveSpeed / 5, rb.linearVelocity.y);
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, 0.1f); // Smooth transition to target velocity
-        }
+            Vector2 adjustedMovement = movement * moveSpeed * Time.fixedDeltaTime;
 
+            if (isOnMovingPlatform)
+            {
+                // Only add the platform's velocity to the player's velocity, no multiplication by Time.fixedDeltaTime
+                rb.linearVelocity = new Vector2(movement.x * moveSpeed, rb.linearVelocity.y) + platformVelocity;
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(movement.x * moveSpeed, rb.linearVelocity.y);
+            }
+
+            // Optional: Smooth out the player's horizontal movement
+            Vector2 targetVelocity = new Vector2(movement.x * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, 0.1f);
+        }
     }
 
     private void OnDrawGizmos()
@@ -119,28 +130,22 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnGround)
             {
-                // Regular jump from the ground
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 jumped = true;
             }
             else if (!isOnGround && doubleJump.canDoubleJump)
             {
-                // Double jump logic
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 doubleJump.canDoubleJump = false;
             }
             else if (isAgainstWall && wall.canWallJump)
             {
-                // Wall jump logic: Push off the wall with a slight horizontal force
-                rb.linearVelocity = Vector2.zero; // Reset velocity to avoid accumulation
+                rb.linearVelocity = Vector2.zero;
 
-                // Apply jump force with a small horizontal push
-                float pushDirection = Mathf.Sign(transform.position.x - wallCheck.position.x); // Determine wall side
-                rb.AddForce(new Vector2(pushDirection * jumpForce / 1.5f, jumpForce)); // Horizontal and vertical force
-
+                float pushDirection = Mathf.Sign(transform.position.x - wallCheck.position.x);
+                rb.AddForce(new Vector2(pushDirection * jumpForce / 1.5f, jumpForce));
                 StartCoroutine(DisableControlForSeconds(0.15f));
-
                 jumped = true;
             }
         }
