@@ -67,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Facing left
         }
 
+        if (isOnGround)
+        {
+            doubleJump.jumpedTwice = false;
+        }
+
         if (isOnGround || isAgainstWall)
         {
             dash.canDash = true;
@@ -143,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocityX, 0);
                 rb.AddForce(new Vector2(rb.linearVelocityX, jumpForce));
                 doubleJump.canDoubleJump = false;
+                doubleJump.jumpedTwice = true;
             }
             else if (isAgainstWall && wall.canWallJump)
             {
@@ -166,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
         if (AbilityManager.Instance.IsAbilityUnlocked("DJ"))
         {
             doubleJump.canDoubleJump = true;
+            doubleJump.jumpedTwice = false;
         }
     }
 

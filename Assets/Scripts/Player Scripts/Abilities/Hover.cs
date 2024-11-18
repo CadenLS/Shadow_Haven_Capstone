@@ -4,6 +4,7 @@ public class Hover : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+    public DoubleJump doubleJump;
 
     private float hoverTicks;
     private float hoverDur = 0.5f;
@@ -20,6 +21,7 @@ public class Hover : MonoBehaviour
     {
         
         playerMovement = GetComponent<PlayerMovement>();
+        doubleJump = GetComponent<DoubleJump>();
         originalGravity = playerMovement.rb.gravityScale;
         originalHoverAmount = hoverAmount;
 
@@ -48,6 +50,12 @@ public class Hover : MonoBehaviour
         playerMovement.rb.gravityScale = originalGravity;
         isHovering = false;
         canHover = false;
+
+        // Allow double jump again if the ability is unlocked
+        if (AbilityManager.Instance.IsAbilityUnlocked("DJ") && doubleJump.jumpedTwice == false)
+        {
+            doubleJump.canDoubleJump = true;
+        }
     }
 
 }
