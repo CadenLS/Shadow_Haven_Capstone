@@ -8,6 +8,7 @@ public class Hover : MonoBehaviour
     private float hoverTicks;
     private float hoverDur = 0.5f;
     private float hoverForce = -1;
+    public bool isHovering;
     public bool canHover = false;
     public double hoverAmount = 1;
     public double originalHoverAmount;
@@ -29,6 +30,7 @@ public class Hover : MonoBehaviour
 
         if (canHover && !playerMovement.isOnGround)
         {
+            isHovering = true;
             // Apply upward force to simulate hover
             playerMovement.rb.gravityScale = 0.1f; // A small gravity value to slow down falling
             playerMovement.rb.linearVelocity = new Vector2(playerMovement.rb.linearVelocityX, hoverForce);
@@ -44,7 +46,7 @@ public class Hover : MonoBehaviour
     {
         // Restore gravity
         playerMovement.rb.gravityScale = originalGravity;
-
+        isHovering = false;
         canHover = false;
     }
 

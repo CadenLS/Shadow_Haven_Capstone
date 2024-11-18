@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             hover.hoverAmount = hover.originalHoverAmount;
         }
 
-        if (isAgainstWall)
+        if (isAgainstWall || hover.isHovering)
         {
             doubleJump.canDoubleJump = false;
         }

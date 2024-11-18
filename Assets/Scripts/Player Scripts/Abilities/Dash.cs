@@ -30,6 +30,10 @@ public class Dash : MonoBehaviour
             {
                 playerMovement.rb.AddForce(dashDirection * dashStrength, ForceMode2D.Impulse);
             }
+            else
+            {
+                return;
+            }
 
             canDash = false;
             isDashing = true;
