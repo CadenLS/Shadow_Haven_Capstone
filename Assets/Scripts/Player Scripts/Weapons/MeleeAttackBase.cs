@@ -8,7 +8,7 @@ public class MeleeAttackBase : MonoBehaviour
     public float damage;
     public float attackRadius;
     public LayerMask enemyLayer;
-    private float bounceForce = 500;
+    private float bounceForce = 1000;
     //public bool canAttack = true;
 
     private void Start()

@@ -90,13 +90,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (dash.isDashing)
+        {
+            // Skip movement updates while dashing
+            return;
+        }
+
         if (!isAgainstWall && canControl)
         {
             Vector2 adjustedMovement = movement * moveSpeed * Time.fixedDeltaTime;
 
             if (isOnMovingPlatform)
             {
-                // Only add the platform's velocity to the player's velocity, no multiplication by Time.fixedDeltaTime
                 rb.linearVelocity = new Vector2(movement.x * moveSpeed, rb.linearVelocity.y) + platformVelocity;
             }
             else

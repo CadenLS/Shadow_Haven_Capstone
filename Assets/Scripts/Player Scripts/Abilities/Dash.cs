@@ -5,8 +5,8 @@ public class Dash : MonoBehaviour
     public PlayerMovement playerMovement;
     public MeleeAttackBase meleeAttack;
 
-    private float dashStrength = 10;
-    private float dashDur = 0.2f;
+    public float dashStrength = 15;
+    public float dashDur = 0.2f;
     public bool canDash = true;
     private float originalGravity;
     public bool isDashing;

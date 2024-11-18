@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 7203533935840081799}
   - component: {fileID: 4979656687371235071}
   - component: {fileID: 1282955037036081534}
+  - component: {fileID: 7953714097769612907}
   - component: {fileID: 1300276098376796240}
   - component: {fileID: 1719141586830611246}
   - component: {fileID: 3306520028592378435}
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1719141586830611246}
+  movement: {x: 0, y: 0}
   moveSpeed: 5
   jumpForce: 500
   groundCheck: {fileID: 5092854307843906556}
@@ -143,6 +145,21 @@ MonoBehaviour:
   isOnGround: 0
   isAgainstWall: 0
   jumped: 0
+  platformVelocity: {x: 0, y: 0}
+  isOnMovingPlatform: 0
+--- !u!114 &7953714097769612907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339655226662379579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7aff019d05c683458d7c8aa94dc4aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRespawnPoint: {fileID: 0}
 --- !u!212 &1300276098376796240
 SpriteRenderer:
   m_ObjectHideFlags: 0
