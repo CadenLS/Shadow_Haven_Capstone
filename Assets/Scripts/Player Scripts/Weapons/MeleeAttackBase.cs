@@ -8,7 +8,7 @@ public class MeleeAttackBase : MonoBehaviour
     public float damage;
     public float attackRadius;
     public LayerMask enemyLayer;
-    private float bounceForce = 1000;
+    public float bounceForce = 5;
     //public bool canAttack = true;
 
     private void Start()
@@ -64,7 +64,8 @@ public class MeleeAttackBase : MonoBehaviour
             {
                 if (playerMovement.isOnGround == false && Input.GetKey(KeyCode.S))
                 {
-                    playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityX, bounceForce));
+                    playerMovement.rb.linearVelocity = new Vector2(playerMovement.rb.linearVelocityX, bounceForce);
+                    //playerMovement.rb.AddForce(new Vector2(playerMovement.rb.linearVelocityX, bounceForce));
                 }
                 enemyBase.TakeDamage(damage);
                 enemyBase.tookDamage = true;

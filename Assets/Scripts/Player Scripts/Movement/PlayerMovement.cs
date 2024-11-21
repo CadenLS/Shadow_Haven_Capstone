@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnGround;
     public bool isAgainstWall;
     public bool jumped = false;
-    private bool canControl = true;
+    public bool canControl = true;
 
     public Vector2 platformVelocity = Vector2.zero;
     public bool isOnMovingPlatform = false;
@@ -95,13 +95,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dash.isDashing)
+        if (!canControl || dash.isDashing)
         {
-            // Skip movement updates while dashing
+            // Skip movement updates while control is disabled
             return;
         }
 
-        if (!isAgainstWall && canControl)
+        if (!isAgainstWall)
         {
             Vector2 adjustedMovement = movement * moveSpeed * Time.fixedDeltaTime;
 
@@ -120,21 +120,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-
-        // Set gizmo color to blue
-        Gizmos.color = Color.blue;
-
-        // Draw a wire sphere at the groundCheck position to represent the ground check radius
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-
-        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
-
-    }
-
     public void Jump()
     {
+        if (!canControl) return; // Prevent jumping while grappling
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -160,8 +148,21 @@ public class PlayerMovement : MonoBehaviour
                 jumped = true;
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        // Set gizmo color to blue
+        Gizmos.color = Color.blue;
+
+        // Draw a wire sphere at the groundCheck position to represent the ground check radius
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
 
     }
+
 
     private IEnumerator DisableControlForSeconds(float seconds)
     {

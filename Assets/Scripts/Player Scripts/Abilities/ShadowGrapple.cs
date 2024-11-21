@@ -1,22 +1,25 @@
+using System.Collections;
 using UnityEngine;
 
 public class ShadowGrapple : MonoBehaviour
 {
 
-    public float grappleSpeed = 10f;
+    public float grappleSpeed = 15f;
+    public float swingStrength = 5f;
     public float maxGrappleDistance = 15f;
     public bool isGrappling = false;
     private Vector2 grapplePoint;
     public Rigidbody2D rb;
-    public float swingStrength = 5f;
     public float cooldownTime = 5f;
     private float cooldownTimer = 0f;
     private bool isOnCooldown = false;
+    private PlayerMovement playerMovement;
 
 
     void Start()
     {
-        
+
+        playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -25,7 +28,6 @@ public class ShadowGrapple : MonoBehaviour
     void Update()
     {
 
-        // Update cooldown timer if on cooldown
         if (isOnCooldown)
         {
             cooldownTimer -= Time.deltaTime;
@@ -37,40 +39,75 @@ public class ShadowGrapple : MonoBehaviour
 
         if (isGrappling)
         {
-            // Calculate the swing direction and apply force
             Vector2 direction = (grapplePoint - rb.position).normalized;
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, direction * grappleSpeed, Time.deltaTime * swingStrength);
 
             if (Vector2.Distance(rb.position, grapplePoint) < 0.5f)
             {
-                isGrappling = false;
+                EndGrapple();
             }
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            isGrappling = false;
+            EndGrapple();
         }
 
     }
 
     public void Grapple()
     {
-        if (isOnCooldown) return; // Exit if on cooldown
+        if (isOnCooldown || isGrappling) return;
 
-        // Get the mouse position in world space
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Calculate the distance to the grapple point
         Vector2 directionToMouse = mousePosition - (Vector2)transform.position;
 
-        // Check if the distance to the mouse position is within the maximum grapple distance
         if (directionToMouse.magnitude <= maxGrappleDistance)
         {
             grapplePoint = mousePosition;
             isGrappling = true;
             isOnCooldown = true;
             cooldownTimer = cooldownTime;
+
+            playerMovement.canControl = false; // Disable player control during grapple
         }
+    }
+
+    private void EndGrapple()
+    {
+        isGrappling = false;
+
+        // Temporarily disable player control for smooth transition
+        StartCoroutine(SmoothTransitionToMovement());
+    }
+
+    private IEnumerator SmoothTransitionToMovement()
+    {
+        playerMovement.canControl = false; // Temporarily disable control
+
+        // Capture the current velocity from the grapple
+        Vector2 initialVelocity = rb.linearVelocity;
+
+        // Duration for the transition
+        float transitionTime = 0.5f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < transitionTime)
+        {
+            // Lerp only the horizontal component for a smoother transition
+            float t = elapsedTime / transitionTime;
+            Vector2 targetVelocity = new Vector2(playerMovement.movement.x * playerMovement.moveSpeed, rb.linearVelocity.y);
+            float newXVelocity = Mathf.Lerp(initialVelocity.x, targetVelocity.x, t);
+
+            // Apply the blended velocity while keeping gravity's natural effect
+            rb.linearVelocity = new Vector2(newXVelocity, rb.linearVelocity.y);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Re-enable player control
+        playerMovement.canControl = true;
     }
 
     private void OnDrawGizmos()

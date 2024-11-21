@@ -256,6 +256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1282955037036081534}
   meleeAttack: {fileID: 4731475545498910037}
+  dashStrength: 15
+  dashDur: 0.2
   canDash: 1
   isDashing: 0
 --- !u!114 &4731475545498910037
@@ -291,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1282955037036081534}
   canDoubleJump: 0
+  jumpedTwice: 0
 --- !u!114 &4477906603815856272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1282955037036081534}
+  doubleJump: {fileID: 0}
+  isHovering: 0
   canHover: 0
   hoverAmount: 1
   originalHoverAmount: 0
