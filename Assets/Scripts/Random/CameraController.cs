@@ -14,6 +14,9 @@ public class CameraController : MonoBehaviour
     private bool isRising;
     public float maxVertOffset = 5f;
 
+    public float verticalShiftSpeed = 5f;
+    private float verticalOffset = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,9 +25,32 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
+        if (player.rb.linearVelocity.x == 0f)  // Player is not moving horizontally
+        {
+            float verticalInput = 0f;
+
+            if (Input.GetKey(KeyCode.S))  // Holding S will shift the camera down
+            {
+                verticalInput = -1f;
+            }
+            else if (Input.GetKey(KeyCode.W))  // Holding W will shift the camera up
+            {
+                verticalInput = 1f;
+            }
+
+            // Smoothly adjust the vertical offset based on input
+            verticalOffset = Mathf.Lerp(verticalOffset, verticalInput * maxVertOffset, verticalShiftSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // If the player is moving horizontally, don't allow vertical camera movement
+            verticalOffset = Mathf.Lerp(verticalOffset, 0f, verticalShiftSpeed * Time.deltaTime);
+        }
+
+        // Update the target position based on the player's movement
         if (player.isOnGround)
         {
-            targetPoint.y = player.transform.position.y;
+            targetPoint.y = player.transform.position.y + verticalOffset;
         }
 
         if (transform.position.y - player.transform.position.y > maxVertOffset)
@@ -34,7 +60,7 @@ public class CameraController : MonoBehaviour
 
         if (isFalling)
         {
-            targetPoint.y = player.transform.position.y;
+            targetPoint.y = player.transform.position.y + verticalOffset;
 
             if (player.isOnGround)
             {
@@ -49,7 +75,7 @@ public class CameraController : MonoBehaviour
 
         if (isRising)
         {
-            targetPoint.y = player.transform.position.y;
+            targetPoint.y = player.transform.position.y + verticalOffset;
 
             if (player.rb.linearVelocity.y <= 0) // Stop rising if player stops moving upward
             {
@@ -69,7 +95,6 @@ public class CameraController : MonoBehaviour
         targetPoint.x = player.transform.position.x + lookOffset;
 
         transform.position = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
-
     }
 
 }
