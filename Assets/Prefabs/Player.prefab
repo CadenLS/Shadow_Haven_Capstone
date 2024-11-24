@@ -145,6 +145,7 @@ MonoBehaviour:
   isOnGround: 0
   isAgainstWall: 0
   jumped: 0
+  canControl: 1
   platformVelocity: {x: 0, y: 0}
   isOnMovingPlatform: 0
 --- !u!114 &7953714097769612907
@@ -279,6 +280,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  bounceForce: 1000
 --- !u!114 &382090960208632788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,10 +358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleSpeed: 10
+  swingStrength: 5
   maxGrappleDistance: 15
   isGrappling: 0
   rb: {fileID: 1719141586830611246}
-  swingStrength: 5
   cooldownTime: 5
 --- !u!70 &9127300148399181929
 CapsuleCollider2D:

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private DoubleJump doubleJump;
     private Hover hover;
     private WallJump wall;
+    //private ShadowGrapple grapple;
     private PlayerController playerController;
 
     // Basic Variables
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         doubleJump = GetComponent<DoubleJump>();
         hover = GetComponent<Hover>();
         wall = GetComponent<WallJump>();
+        //grapple = GetComponent<ShadowGrapple>();
 
     }
 
