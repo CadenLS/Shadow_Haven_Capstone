@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour
             grapple.Grapple();
         }
 
-        if (AbilityManager.Instance.IsAbilityUnlocked("Dash") && Input.GetKey(KeyCode.Mouse4))
+        if (AbilityManager.Instance.IsAbilityUnlocked("Dash") && Input.GetKey(KeyCode.E)) //Input.GetKey(KeyCode.Mouse4)
         {
             dash.DashForward();
             dash.canDash = false;
         }
 
-        if (AbilityManager.Instance.IsAbilityUnlocked("Hover") && Input.GetKeyDown(KeyCode.Mouse3) && !playerMovement.isOnGround && hover.hoverAmount >= 1)
+        if (AbilityManager.Instance.IsAbilityUnlocked("Hover") && Input.GetKeyDown(KeyCode.Q) && !playerMovement.isOnGround && hover.hoverAmount >= 1) //Input.GetKeyDown(KeyCode.Mouse3)
         {
             hover.canHover = true;
             hover.HoverAbility();
