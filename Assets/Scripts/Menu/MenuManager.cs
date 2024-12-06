@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadMenuScreen()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("CapstoneMain");
         Debug.Log("MenuScreen");
     }
 

@@ -94,11 +94,12 @@ public class GroundEnemyPerception : MonoBehaviour
 
     private void FlipToFacePlayer()
     {
-        if (player.position.x > transform.position.x && !groundEnemyMovement.IsFacingRight())
+        // Only flip the sprite if the player is on the opposite side
+        if (player.position.x > transform.position.x && groundEnemyMovement.IsFacingRight())
         {
             groundEnemyMovement.Flip();
         }
-        else if (player.position.x < transform.position.x && groundEnemyMovement.IsFacingRight())
+        else if (player.position.x < transform.position.x && !groundEnemyMovement.IsFacingRight())
         {
             groundEnemyMovement.Flip();
         }

@@ -23,7 +23,6 @@ public class GroundEnemyMovement : MonoBehaviour
         groundEnemyPerception = GetComponent<GroundEnemyPerception>();
 
         curPoint = pointB.transform; // Set current point to point B
-        spr.flipX = true; // Default to facing left
         animator = GetComponent<Animator>();
     }
 
@@ -31,21 +30,16 @@ public class GroundEnemyMovement : MonoBehaviour
     {
         if (!isChasingPlayer && !groundEnemyPerception.isPaused)
         {
-            animator.SetBool("isMoving", true);
+            // Patrol behavior when not chasing the player
             Patrol();
         }
         else if (isChasingPlayer)
         {
-            animator.SetBool("isMoving", true);
             // Move towards the player
             rb.linearVelocity = new Vector2(chaseDirection.x * speed, rb.linearVelocity.y);
 
-            // Flip the sprite based on the movement direction
-            spr.flipX = chaseDirection.x < 0;
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
+            // Flip the sprite to face the player direction
+            FlipSpriteToFacePlayer();
         }
     }
 
@@ -56,14 +50,15 @@ public class GroundEnemyMovement : MonoBehaviour
         if (curPoint == pointB.transform)
         {
             rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
-            spr.flipX = true; // Facing left when moving towards point B
+            FlipSpriteIfNeeded(1); // Moving towards point B
         }
         else
         {
             rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
-            spr.flipX = false; // Facing right when moving towards point A
+            FlipSpriteIfNeeded(-1); // Moving towards point A
         }
 
+        // Change the patrol point when close
         if (Vector2.Distance(transform.position, curPoint.position) < 0.5f && curPoint == pointB.transform)
         {
             curPoint = pointA.transform;
@@ -71,6 +66,32 @@ public class GroundEnemyMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, curPoint.position) < 0.5f && curPoint == pointA.transform)
         {
             curPoint = pointB.transform;
+        }
+    }
+
+    private void FlipSpriteIfNeeded(float moveDirection)
+    {
+        // Only flip the sprite if needed (flip to the correct patrol direction)
+        if (moveDirection < 0 && !spr.flipX) // Facing left
+        {
+            spr.flipX = true;
+        }
+        else if (moveDirection > 0 && spr.flipX) // Facing right
+        {
+            spr.flipX = false;
+        }
+    }
+
+    private void FlipSpriteToFacePlayer()
+    {
+        // Check if the player is to the right or left of the enemy and flip accordingly
+        if (chaseDirection.x < 0 && !spr.flipX) // Player is on the left
+        {
+            spr.flipX = true;
+        }
+        else if (chaseDirection.x > 0 && spr.flipX) // Player is on the right
+        {
+            spr.flipX = false;
         }
     }
 
@@ -84,6 +105,9 @@ public class GroundEnemyMovement : MonoBehaviour
     {
         isChasingPlayer = true;
         chaseDirection = direction;
+
+        // Flip the sprite based on the chase direction
+        FlipSpriteToFacePlayer();
     }
 
     public void StopChase()
