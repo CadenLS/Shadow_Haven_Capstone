@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private WallJump wall;
     //private ShadowGrapple grapple;
     private PlayerController playerController;
+    public Animator animator;
 
     // Basic Variables
     public float moveSpeed = 5f;
@@ -42,6 +43,12 @@ public class PlayerMovement : MonoBehaviour
         doubleJump = GetComponent<DoubleJump>();
         hover = GetComponent<Hover>();
         wall = GetComponent<WallJump>();
+        // Get Animator from child object
+        animator = GetComponentInChildren<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator not found on Player or its children.");
+        }
         //grapple = GetComponent<ShadowGrapple>();
 
     }
@@ -91,6 +98,41 @@ public class PlayerMovement : MonoBehaviour
         {
             // If the player is against a wall and falling, reduce the fall speed
             rb.linearVelocity = new Vector2(rb.linearVelocityX, -wallSlideSpeed);
+            animator.SetBool("IsWallSliding", true);
+        }
+        else
+        {
+            animator.SetBool("IsWallSliding", false);
+        }
+
+        // WallJump animation
+        if (Input.GetButtonDown("Jump") && isAgainstWall && wall.canWallJump)
+        {
+            animator.SetTrigger("WallJump");
+        }
+
+        // Set Speed parameter
+        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+
+        // Set IsJumping and IsFalling
+        animator.SetBool("IsJumping", !isOnGround && rb.linearVelocity.y > 0);
+        animator.SetBool("IsFalling", !isOnGround && rb.linearVelocityY < 0);
+
+        // Set IsOnGround
+        animator.SetBool("IsOnGround", isOnGround);
+
+        // Set VerticalLook
+        if (Input.GetKey(KeyCode.W))
+        {
+            animator.SetFloat("VerticalLook", 1f);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            animator.SetFloat("VerticalLook", -1f);
+        }
+        else
+        {
+            animator.SetFloat("VerticalLook", 0f);
         }
 
     }
@@ -168,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DisableControlForSeconds(float seconds)
     {
+        animator.SetTrigger("WallJump");
         canControl = false; // Disable control
         yield return new WaitForSeconds(seconds); // Wait for the specified interval
         canControl = true; // Re-enable control

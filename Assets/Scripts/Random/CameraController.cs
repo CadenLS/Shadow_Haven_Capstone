@@ -83,10 +83,18 @@ public class CameraController : MonoBehaviour
             }
         }
 
+        if (player.rb.linearVelocity.x == 0f)
+        {
+            float verticalInput = player.animator.GetFloat("VerticalLook");
+
+            verticalOffset = Mathf.Lerp(verticalOffset, verticalInput * maxVertOffset, verticalShiftSpeed * Time.deltaTime);
+        }
+
         if (player.rb.linearVelocity.x > 0f)
         {
             lookOffset = Mathf.Lerp(lookOffset, lookAheadDistance, lookAheadSpeed * Time.deltaTime);
         }
+
         if (player.rb.linearVelocity.x < 0f)
         {
             lookOffset = Mathf.Lerp(lookOffset, -lookAheadDistance, lookAheadSpeed * Time.deltaTime);
