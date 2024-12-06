@@ -1,0 +1,978 @@
+fileFormatVersion: 2
+guid: 178740afb926f4d49a47aab62ab71628
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2936664619553007461
+    second: SH MainCharacterMovement_0
+  - first:
+      213: -1611615964884208589
+    second: SH MainCharacterMovement_1
+  - first:
+      213: 832330022326669867
+    second: SH MainCharacterMovement_2
+  - first:
+      213: 4889738433548681152
+    second: SH MainCharacterMovement_3
+  - first:
+      213: -3601686629611663973
+    second: SH MainCharacterMovement_4
+  - first:
+      213: 5389684390869059457
+    second: SH MainCharacterMovement_5
+  - first:
+      213: 6268425321779957897
+    second: SH MainCharacterMovement_6
+  - first:
+      213: -5379143400781373128
+    second: SH MainCharacterMovement_7
+  - first:
+      213: 4728215487922725078
+    second: SH MainCharacterMovement_8
+  - first:
+      213: 652915506277019980
+    second: SH MainCharacterMovement_9
+  - first:
+      213: -2668268348976923590
+    second: SH MainCharacterMovement_10
+  - first:
+      213: 2909993363371110101
+    second: SH MainCharacterMovement_11
+  - first:
+      213: 3556282542028464682
+    second: SH MainCharacterMovement_12
+  - first:
+      213: -6811281242375607159
+    second: SH MainCharacterMovement_13
+  - first:
+      213: 3881819293615894077
+    second: SH MainCharacterMovement_14
+  - first:
+      213: -2060081030938703792
+    second: SH MainCharacterMovement_15
+  - first:
+      213: 2772557894072991889
+    second: SH MainCharacterMovement_16
+  - first:
+      213: -2240962761937515952
+    second: SH MainCharacterMovement_17
+  - first:
+      213: 8391896812812956246
+    second: SH MainCharacterMovement_18
+  - first:
+      213: -3349374092362988686
+    second: SH MainCharacterMovement_19
+  - first:
+      213: -9117313655422179246
+    second: SH MainCharacterMovement_20
+  - first:
+      213: -1026484798163104220
+    second: SH MainCharacterMovement_21
+  - first:
+      213: 8765146404527306984
+    second: SH MainCharacterMovement_22
+  - first:
+      213: -4760899204079558138
+    second: SH MainCharacterMovement_23
+  - first:
+      213: -6553731301778692719
+    second: SH MainCharacterMovement_24
+  - first:
+      213: 4909805635367539945
+    second: SH MainCharacterMovement_25
+  - first:
+      213: 5922405300187048426
+    second: SH MainCharacterMovement_26
+  - first:
+      213: -7430555697138249904
+    second: SH MainCharacterMovement_27
+  - first:
+      213: -4866680679387437949
+    second: SH MainCharacterMovement_28
+  - first:
+      213: 455991761117036328
+    second: SH MainCharacterMovement_29
+  - first:
+      213: 7800424235348418688
+    second: SH MainCharacterMovement_30
+  - first:
+      213: -3372086992129543103
+    second: SH MainCharacterMovement_31
+  - first:
+      213: -4930358317441863115
+    second: SH MainCharacterMovement_32
+  - first:
+      213: -1898790531148204643
+    second: SH MainCharacterMovement_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98d51f661fde37d0800000000000000
+      internalID: -2936664619553007461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_1
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3347ab291d362a9e0800000000000000
+      internalID: -1611615964884208589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_2
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b229ca4deb70d8b00800000000000000
+      internalID: 832330022326669867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_3
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf7e38c237dbd340800000000000000
+      internalID: 4889738433548681152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_4
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d09b9c71d340ec0800000000000000
+      internalID: -3601686629611663973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_5
+      rect:
+        serializedVersion: 2
+        x: 2002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187c731d5610cca40800000000000000
+      internalID: 5389684390869059457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_6
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98012cd5e9bedf650800000000000000
+      internalID: 6268425321779957897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_7
+      rect:
+        serializedVersion: 2
+        x: 2502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8312a80b3917955b0800000000000000
+      internalID: -5379143400781373128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_8
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d062236feefd9140800000000000000
+      internalID: 4728215487922725078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_9
+      rect:
+        serializedVersion: 2
+        x: 3752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c417cf3913f9f0900800000000000000
+      internalID: 652915506277019980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_10
+      rect:
+        serializedVersion: 2
+        x: 4002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3cffcdd21868fad0800000000000000
+      internalID: -2668268348976923590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_11
+      rect:
+        serializedVersion: 2
+        x: 4252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5deaa72db8f526820800000000000000
+      internalID: 2909993363371110101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_12
+      rect:
+        serializedVersion: 2
+        x: 4502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22a78641247a5130800000000000000
+      internalID: 3556282542028464682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_13
+      rect:
+        serializedVersion: 2
+        x: 5752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98cabea3cc77971a0800000000000000
+      internalID: -6811281242375607159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_14
+      rect:
+        serializedVersion: 2
+        x: 6002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3eab3ea41efed530800000000000000
+      internalID: 3881819293615894077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_15
+      rect:
+        serializedVersion: 2
+        x: 6252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058c066973f1963e0800000000000000
+      internalID: -2060081030938703792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_16
+      rect:
+        serializedVersion: 2
+        x: 6502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1900d6b07ba1a7620800000000000000
+      internalID: 2772557894072991889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_17
+      rect:
+        serializedVersion: 2
+        x: 6752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a06dbbd3086e0e0800000000000000
+      internalID: -2240962761937515952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_18
+      rect:
+        serializedVersion: 2
+        x: 7002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652f27760b1067470800000000000000
+      internalID: 8391896812812956246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_19
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273cecc3202a481d0800000000000000
+      internalID: -3349374092362988686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_20
+      rect:
+        serializedVersion: 2
+        x: 7502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2582eb6398bc87180800000000000000
+      internalID: -9117313655422179246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_21
+      rect:
+        serializedVersion: 2
+        x: 8002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42e462eb38131c1f0800000000000000
+      internalID: -1026484798163104220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_22
+      rect:
+        serializedVersion: 2
+        x: 8252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e87426173e04a970800000000000000
+      internalID: 8765146404527306984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_23
+      rect:
+        serializedVersion: 2
+        x: 8502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602e561f563ededb0800000000000000
+      internalID: -4760899204079558138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_24
+      rect:
+        serializedVersion: 2
+        x: 8752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1956f1caa187c05a0800000000000000
+      internalID: -6553731301778692719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_25
+      rect:
+        serializedVersion: 2
+        x: 10002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e41b4c4632232440800000000000000
+      internalID: 4909805635367539945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_26
+      rect:
+        serializedVersion: 2
+        x: 10252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae92a850e3c903250800000000000000
+      internalID: 5922405300187048426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_27
+      rect:
+        serializedVersion: 2
+        x: 10502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fc15456fc51e890800000000000000
+      internalID: -7430555697138249904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_28
+      rect:
+        serializedVersion: 2
+        x: 10752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 384ead5f4b3167cb0800000000000000
+      internalID: -4866680679387437949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_29
+      rect:
+        serializedVersion: 2
+        x: 12002
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82fb2ed3712045600800000000000000
+      internalID: 455991761117036328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_30
+      rect:
+        serializedVersion: 2
+        x: 12252
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0806a4d738ca04c60800000000000000
+      internalID: 7800424235348418688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_31
+      rect:
+        serializedVersion: 2
+        x: 12502
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144376a2fb0f331d0800000000000000
+      internalID: -3372086992129543103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SH MainCharacterMovement_32
+      rect:
+        serializedVersion: 2
+        x: 12752
+        y: 17
+        width: 250
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5323c718b39d39bb0800000000000000
+      internalID: -4930358317441863115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 439558839fdaaf5489c252a041e13e09
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SH MainCharacterMovement_0: -2936664619553007461
+      SH MainCharacterMovement_1: -1611615964884208589
+      SH MainCharacterMovement_10: -2668268348976923590
+      SH MainCharacterMovement_11: 2909993363371110101
+      SH MainCharacterMovement_12: 3556282542028464682
+      SH MainCharacterMovement_13: -6811281242375607159
+      SH MainCharacterMovement_14: 3881819293615894077
+      SH MainCharacterMovement_15: -2060081030938703792
+      SH MainCharacterMovement_16: 2772557894072991889
+      SH MainCharacterMovement_17: -2240962761937515952
+      SH MainCharacterMovement_18: 8391896812812956246
+      SH MainCharacterMovement_19: -3349374092362988686
+      SH MainCharacterMovement_2: 832330022326669867
+      SH MainCharacterMovement_20: -9117313655422179246
+      SH MainCharacterMovement_21: -1026484798163104220
+      SH MainCharacterMovement_22: 8765146404527306984
+      SH MainCharacterMovement_23: -4760899204079558138
+      SH MainCharacterMovement_24: -6553731301778692719
+      SH MainCharacterMovement_25: 4909805635367539945
+      SH MainCharacterMovement_26: 5922405300187048426
+      SH MainCharacterMovement_27: -7430555697138249904
+      SH MainCharacterMovement_28: -4866680679387437949
+      SH MainCharacterMovement_29: 455991761117036328
+      SH MainCharacterMovement_3: 4889738433548681152
+      SH MainCharacterMovement_30: 7800424235348418688
+      SH MainCharacterMovement_31: -3372086992129543103
+      SH MainCharacterMovement_32: -4930358317441863115
+      SH MainCharacterMovement_4: -3601686629611663973
+      SH MainCharacterMovement_5: 5389684390869059457
+      SH MainCharacterMovement_6: 6268425321779957897
+      SH MainCharacterMovement_7: -5379143400781373128
+      SH MainCharacterMovement_8: 4728215487922725078
+      SH MainCharacterMovement_9: 652915506277019980
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
